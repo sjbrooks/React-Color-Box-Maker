@@ -9,7 +9,7 @@ import React, { useState } from "react";
  */
 
 const NewBoxForm = ({ addBox }) => {
-  const INITIAL_STATE = { backgroundColor: "blue", width: 100, height: 100};
+  const INITIAL_STATE = { backgroundColor: "", width: 0, height: 0};
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   /** Send {backgroundColor, width, height} to parent
@@ -24,20 +24,15 @@ const NewBoxForm = ({ addBox }) => {
   /** Update local state w/curr state of input elem */
 
   const handleChange = evt => {
-    const { backgroundColor, width, height } = evt.target;
+    const { name, value} = evt.target;
     setFormData(fData => ({
       ...fData,
-
-      // NOTE: each of these keys originally looked like arrays
-      backgroundColor: backgroundColor,
-      width: width,
-      height: height
+      [name]: value
     }));
+    // NOTE: why was name an array again? 
+    // **computing key on the fly!**
   };
 
-  /** render form */
-
-  console.log(`\n\n\n The value of formData is `, formData, '\n\n\n');
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="backgroundColor">Color:</label>

@@ -4,11 +4,12 @@ import "./Box.css";
 /** A single colored box used in the BoxList and NewBoxForm components.
  **/
 
-function Box({ backgroundColor, width, height, remove }) {
+function Box({ backgroundColor, width, height, id, remove }) {
 
-  const handleRemove = (evt) => (
+  function handleRemove(evt){
     remove(evt.target)
-  )
+
+  }
 
   const styles = {
     backgroundColor,
@@ -17,8 +18,8 @@ function Box({ backgroundColor, width, height, remove }) {
   }
 
   return (
-  <div className="colored-box" style={styles}>
-    <button onClick={handleRemove}>X</button>
+  <div onClick={handleRemove} className="colored-box" id={id} style={styles}>
+    X
   </div>
   )
 }

@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot:  renders same testBox each time 1`] = `
+<DocumentFragment>
+  <div
+    class="colored-box"
+    style="width: 150px; height: 150px;"
+  >
+    X
+  </div>
+</DocumentFragment>
+`;
