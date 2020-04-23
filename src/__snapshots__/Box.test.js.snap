@@ -6,7 +6,7 @@ exports[`snapshot:  renders same testBox each time 1`] = `
     class="colored-box"
     style="width: 150px; height: 150px;"
   >
-    X
+    Remove
   </div>
 </DocumentFragment>
 `;

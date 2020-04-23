@@ -7,24 +7,17 @@ function BoxList() {
   const [boxes, setBoxes] = useState([]);
 
   // function to pass down to Box as a prop to remove the box upon click of a button
-  function remove(box) {
-    console.log('Made It into REMOVE in BoxList')
-    console.log(`\n\n\n The value of box is `, box);
-    let boxToRemoveID = box.id;
-    console.log(`\n\n\n The value of box.id is `, box.id);
-    setBoxes(boxes.filter(b => b.id !== boxToRemoveID));
+
+  function remove(id) {
+    setBoxes(oldBoxes => oldBoxes.filter(b => b.id !== id));
   }
-
-  // const remove = box => {
-
-  // };
 
   const renderBoxes = () => {
     return (
       <div>
         {boxes.map(box => (
-          <div>
-            <Box key={box.id} id={box.id} backgroundColor={box.backgroundColor} width={box.width} height={box.height} remove={remove} />
+          <div key={box.id}>
+            <Box id={box.id} backgroundColor={box.backgroundColor} width={box.width} height={box.height} remove={remove} />
           </div>
         ))}
       </div>

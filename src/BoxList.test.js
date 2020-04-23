@@ -26,14 +26,30 @@ test("snapshot:  renders Box List Page each time", function(){
     expect(asFragment()).toMatchSnapshot();
 })
 
-test("addBox adds box to BoxList ", function(){
+test("we can add box to the page", function(){
     const boxList = render(<BoxList />)
     addBox(boxList);
 
-    expect()
+    const newBox = boxList.getByText("Remove");
+    expect(newBox).toBeInTheDocument();
+    expect(newBox).toHaveStyle(`
+      width: 256px;
+      height: 256px;
+      background-color: orange;
+    `);
 })
 
 
+test("we can remove the box from BoxList", function() {
+  const boxList = render(<BoxList />)
+  addBox(boxList);
+
+  const newBox = boxList.getByText("Remove");
+  fireEvent.click(newBox);
+
+  // const sameBox = boxList.queryByText("Remove");
+  expect(newBox).not.toBeInTheDocument();
+});
 
 
 

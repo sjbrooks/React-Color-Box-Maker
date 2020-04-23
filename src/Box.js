@@ -6,10 +6,7 @@ import "./Box.css";
 
 function Box({ backgroundColor, width, height, id, remove }) {
 
-  function handleRemove(evt){
-    remove(evt.target)
-
-  }
+  const handleRemove = () => remove(id);
 
   const styles = {
     backgroundColor,
@@ -19,7 +16,7 @@ function Box({ backgroundColor, width, height, id, remove }) {
 
   return (
   <div onClick={handleRemove} className="colored-box" id={id} style={styles}>
-    X
+    <button>Remove</button>
   </div>
   )
 }
