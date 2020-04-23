@@ -9,7 +9,7 @@ import React, { useState } from "react";
  */
 
 const NewBoxForm = ({ addBox }) => {
-  const INITIAL_STATE = { backgroundColor: "", width: 0, height: 0};
+  const INITIAL_STATE = { backgroundColor: "blue", width: 100, height: 100};
   const [formData, setFormData] = useState(INITIAL_STATE);
 
   /** Send {backgroundColor, width, height} to parent
@@ -37,6 +37,7 @@ const NewBoxForm = ({ addBox }) => {
 
   /** render form */
 
+  console.log(`\n\n\n The value of formData is `, formData, '\n\n\n');
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="backgroundColor">Color:</label>

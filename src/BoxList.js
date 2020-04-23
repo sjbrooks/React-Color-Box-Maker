@@ -6,6 +6,7 @@ import uuid from "uuid/v4";
 function BoxList() {
   const [boxes, setBoxes] = useState([]);
 
+  // function to pass down to Box as a prop to remove the box upon click of a button
   const remove = box => {
     let boxToRemoveID = box.id;
     setBoxes(boxes.filter(b => b.id !== boxToRemoveID));
@@ -16,7 +17,7 @@ function BoxList() {
       <div>
         {boxes.map(box => (
           <div>
-            <Box backgroundColor={box.backgroundColor} width={box.width} height={box.height} remove={remove}/>
+            <Box key={box.id} backgroundColor={box.backgroundColor} width={box.width} height={box.height} remove={remove}/>
           </div>
         ))}
       </div>
